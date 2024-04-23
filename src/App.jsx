@@ -34,7 +34,7 @@ function App() {
       return;
     }
     if (event.target.innerText == "Clear") {
-      updateNumOne(0)
+      updateNumTwo(0)
       return
     }
     updateNumTwo(Number(event.target.innerText));
@@ -49,7 +49,7 @@ function App() {
         updateAnswer(numOne / numTwo);
         break;
       case "+":
-        updateAnswer(numOne + numTwo);
+        updateAnswer(Number(numOne) + Number(numTwo));
         break;
       case "*":
         updateAnswer(numOne * numTwo);
