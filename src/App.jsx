@@ -13,6 +13,10 @@ function App() {
       updateNumOne(0)
       return
     }
+    if (event.target.innerText == "Recall") {
+      updateNumOne(storedNum)
+      return
+    }
     if (Number(numOne) === 0) {
     updateNumOne(event.target.innerText);
     } else {
@@ -39,6 +43,10 @@ function App() {
     }
     if (event.target.innerText == "Clear") {
       updateNumTwo(0)
+      return
+    }
+    if (event.target.innerText == "Recall") {
+      updateNumTwo(storedNum)
       return
     }
     if (Number(numTwo) === 0) {
@@ -68,6 +76,15 @@ function App() {
     }
   };
 
+  //Store Answer Logic
+  const [storedNum, updateStoredNum] = useState(0)
+
+  const handleStoreClick = () => {
+    updateStoredNum(answer)
+  }
+
+
+
   return (
     <div className="calculator">
       <div className="panel">
@@ -84,6 +101,7 @@ function App() {
           <button>9</button>
           <button>0</button>
           <button>Clear</button>
+          <button onClick={updateNumOne}>Recall</button>
         </div>
       </div>
 
@@ -111,12 +129,14 @@ function App() {
           <button>9</button>
           <button>0</button>
           <button>Clear</button>
+          <button>Recall</button>
         </div>
       </div>
       <div className="panel answer">
         <p>{answer}</p>
         <div>
           <button onClick={returnAnswer}>=</button>
+          <button onClick={handleStoreClick}>Store</button>
         </div>
       </div>
     </div>
