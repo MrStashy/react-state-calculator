@@ -17,6 +17,13 @@ function App() {
       updateNumOne(storedNum)
       return
     }
+    if (event.target.innerText == ".") {
+      if (numOne.includes('.')) {
+        return
+      } else {
+        updateNumOne(numOne + event.target.innerText)
+      }
+    }
     if (Number(numOne) === 0) {
     updateNumOne(event.target.innerText);
     } else {
@@ -48,6 +55,13 @@ function App() {
     if (event.target.innerText == "Recall") {
       updateNumTwo(storedNum)
       return
+    }
+    if (event.target.innerText == ".") {
+      if (numTwo.includes('.')) {
+        return
+      } else {
+        updateNumTwo(numTwo + event.target.innerText)
+      }
     }
     if (Number(numTwo) === 0) {
       updateNumTwo(event.target.innerText);
@@ -83,8 +97,6 @@ function App() {
     updateStoredNum(answer)
   }
 
-
-
   return (
     <div className="calculator">
       <div className="panel">
@@ -102,6 +114,7 @@ function App() {
           <button>0</button>
           <button>Clear</button>
           <button onClick={updateNumOne}>Recall</button>
+          <button>.</button>
         </div>
       </div>
 
@@ -130,6 +143,7 @@ function App() {
           <button>0</button>
           <button>Clear</button>
           <button>Recall</button>
+          <button>.</button>
         </div>
       </div>
       <div className="panel answer">
