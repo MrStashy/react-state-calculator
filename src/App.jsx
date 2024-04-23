@@ -13,7 +13,7 @@ function App() {
       updateNumOne(0)
       return
     }
-    if (numOne === 0) {
+    if (Number(numOne) === 0) {
     updateNumOne(event.target.innerText);
     } else {
       updateNumOne(numOne + event.target.innerText);
@@ -41,7 +41,7 @@ function App() {
       updateNumTwo(0)
       return
     }
-    if (numTwo === 0) {
+    if (Number(numTwo) === 0) {
       updateNumTwo(event.target.innerText);
       } else {
         updateNumTwo(numTwo + event.target.innerText);
